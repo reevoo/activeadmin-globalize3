@@ -14,7 +14,14 @@ Gem::Specification.new do |s|
   s.description = "Handles globalize3 translations"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
+  s.test_files = Dir["spec/**/*"]
 
   s.add_dependency "activeadmin"
   s.add_dependency "globalize3"
+
+  s.add_development_dependency 'rspec-rails'
+  s.add_development_dependency 'capybara'
+  s.add_development_dependency 'poltergeist'
+  s.add_development_dependency "sqlite3"
+  s.add_development_dependency 'combustion', '~> 0.3.1'
 end

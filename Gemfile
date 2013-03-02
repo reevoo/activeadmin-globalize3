@@ -5,17 +5,14 @@ source "http://rubygems.org"
 # development dependencies will be added by default to the :development group.
 gemspec
 
-if Dir.exists?(File.expand_path('~/code/gems'))
-  gem 'railsyard-backend'               , path: File.expand_path('~/code/gems/railsyard-backend')
-else
-  gem 'railsyard-backend'               , git: 'git://github.com/cantierecreativo/railsyard-backend.git', branch: 'develop'
+#Asset pipeline gems
+group :test do
+  gem 'activerecord'
+  gem 'actionpack' # action_controller, action_view
+  gem 'sprockets'
+  gem "jquery-rails"
+  gem "sass-rails"
+  gem "coffee-rails"
+  gem "meta_search",    '>= 1.1.0.pre'
+  gem 'coffee-script-source', '~> 1.4.0' #fix issue with active admin and cs untill fix is merged
 end
-
-group :development, :test do
-  gem 'simplecov', require: false
-  gem 'sqlite3'
-  gem 'rspec-rails', '~> 2.8.1'
-  gem 'webrat'
-  gem 'friendly_id'
-end
-
