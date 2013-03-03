@@ -9,7 +9,7 @@ gem "activeadmin-globalize3"
 ## Your model
 
 ```ruby
-active_admin_translates :title, :description do
+translates :title, :description do
   validates_presence_of :title
 end
 ```

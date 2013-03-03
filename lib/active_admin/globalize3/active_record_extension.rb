@@ -15,7 +15,12 @@ module ActiveAdmin::Globalize3
     end
 
     def active_admin_translates(*args, &block)
-      translates(*args.dup)
+      ActiveSupport::Deprecation.warn "active_admin_translates is deprecated in favour of translates", caller
+      translates(*args, &block)
+    end
+
+    def translates(*args, &block)
+      super(*args.dup)
       args.extract_options!
 
       if block
