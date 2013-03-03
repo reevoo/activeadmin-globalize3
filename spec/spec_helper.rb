@@ -3,7 +3,7 @@ require 'bundler'
 
 Bundler.require :default, :test
 
-
+require 'combustion'
 Combustion.initialize! :active_record, :action_controller,
                        :action_view, :sprockets, :action_mailer
 
