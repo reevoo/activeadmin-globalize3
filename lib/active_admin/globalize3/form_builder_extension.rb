@@ -9,6 +9,9 @@ module ActiveAdmin
             I18n.available_locales.map do |locale|
               template.content_tag(:li) do
                 template.content_tag(:a, I18n.t(:"active_admin.globalize3.language.#{locale}"), href:".locale-#{locale}")
+                classes = ""
+                classes << "active " if locale == I18n.default_locale
+                template.content_tag(:a, I18n.t(:"active_admin.globalize3.language.#{locale}"), href:".locale-#{locale}", class: classes)
               end
             end.join.html_safe
           end <<
