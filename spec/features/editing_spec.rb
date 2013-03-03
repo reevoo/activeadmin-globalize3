@@ -21,4 +21,11 @@ describe "editing a translation" do
     Post.last.title.should == "Heeloo Wooorld"
     Post.last.text.should == "This has been edited"
   end
+
+  it 'only adds translations to the database when there is content' do
+    visit '/admin/posts'
+    click_link 'Edit'
+    click_button('Update Post')
+    Post.last.translations.count.should == 1
+  end
 end
