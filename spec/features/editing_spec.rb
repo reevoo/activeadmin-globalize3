@@ -28,4 +28,13 @@ describe "editing a translation" do
     click_button('Update Post')
     Post.last.translations.count.should == 1
   end
+
+  it 'deletes the translation if I remove all the content' do
+    visit '/admin/posts'
+    click_link 'Edit'
+    find(:field, 'Title', visible: true).set ""
+    find(:field, 'Text', visible: true).set ""
+    click_button('Update Post')
+    Post.last.translations.count.should == 0
+  end
 end

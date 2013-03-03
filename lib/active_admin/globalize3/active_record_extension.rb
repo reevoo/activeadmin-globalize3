@@ -8,10 +8,11 @@ module ActiveAdmin::Globalize3
         end.uniq.sort
       end
 
-      def reject(attributes)
+      def reject_and_distroy(attributes)
         exists = attributes['id'].present?
         blank = attributes.reject{|k,_| k == "locale" or k == "id" }.values.map(&:blank?).reduce(:&)
-        reject = !exists and blank
+        attributes.merge!({:_destroy => 1}) if exists and blank
+        !exists and blank
       end
     end
 
@@ -26,7 +27,7 @@ module ActiveAdmin::Globalize3
       translation_class.attr_accessible *args
 
       attr_accessible :translations_attributes
-      accepts_nested_attributes_for :translations, allow_destroy: true, reject_if: :reject
+      accepts_nested_attributes_for :translations, allow_destroy: true, reject_if: :reject_and_distroy
 
       include Methods
     end
