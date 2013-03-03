@@ -6,7 +6,7 @@ module ActiveAdmin
       def translation_status
         column I18n.t("active_admin.globalize3.translations") do |obj|
           obj.translation_names.map do |t|
-            '<span class="status_tag">%s</span>' % t
+            ActiveAdmin::Views::StatusTag.new.status_tag(t,:ok,:label => t)
           end.join(" ").html_safe
         end
       end
