@@ -2,13 +2,14 @@
 
 .active_admin
   .activeadmin-translations
+    background-color: #f4f4f4
     margin-bottom: 20px
 
     &> ul
       position: relative
       z-index: 2
       top: 4px
-      padding: 0 10px
+      padding: 10px
 
       &> li
         display: inline-block
@@ -17,23 +18,25 @@
           display: inline-block
           color: #666
           margin-right: 3px
+          margin-bottom: 3px
           text-decoration: none
-          font-size: 17px
-          padding: 8px 15px
-          padding-bottom: 8px + 4px
-          margin-bottom: 0
+          font-size: 12px
+          padding: 5px
+          border-radius: 4px
+          text-shadow: 0 1px 0 white
+          +inset-shadow(0, 4px, 4px, #ddd)
+          +gradient($secondary-gradient-stop, #999)
 
           &.error
             color: #932419
 
-          &.active
-            background: #f4f4f4
-            +inset-shadow(0, 4px, 4px, #ddd)
-            +border-top-radius(4px)
-            margin-bottom: 0
+          &.untranslated
             +gradient($secondary-gradient-stop, #f4f4f4)
-            text-shadow: 0 1px 0 white
             color: #666 !important
+          &.active
+            +inset-shadow(0, 4px, 4px, #666)
+            +gradient($secondary-gradient-stop, #333)
+            color: #000 !important
 
     &> fieldset.inputs
       margin-bottom: 0
