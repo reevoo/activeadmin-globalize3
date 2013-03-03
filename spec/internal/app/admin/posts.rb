@@ -1,5 +1,12 @@
 ActiveAdmin.register Post do
-  form do |f|
+ index do
+   column :id 
+   column :title
+   column :text
+   translation_status
+   default_actions
+ end  
+ form do |f|
     f.translated_inputs do |t|
       t.input :title
       t.input :text

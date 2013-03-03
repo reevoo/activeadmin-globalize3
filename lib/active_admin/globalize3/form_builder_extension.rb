@@ -11,7 +11,7 @@ module ActiveAdmin
                 classes = ""
                 classes << "untranslated " unless object.translations.find {|t| t.locale == locale}
                 classes << "active " if locale == I18n.default_locale
-                template.content_tag(:a, I18n.t(:"active_admin.globalize3.language.#{locale}"), href:".locale-#{locale}", class: classes)
+                template.content_tag(:a, locale, href:".locale-#{locale}", class: classes)
               end
             end.join.html_safe
           end <<

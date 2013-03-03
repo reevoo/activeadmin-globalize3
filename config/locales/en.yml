@@ -2,9 +2,3 @@ en:
   active_admin:
     globalize3:
       translations: "Translations"
-      language:
-        it: "Italian"
-        en: "English"
-        es: "Spanish"
-        de: "German"
-        pt: "Portuguese"

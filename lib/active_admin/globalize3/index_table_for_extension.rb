@@ -5,7 +5,7 @@ module ActiveAdmin
     module IndexTableFor
       def translation_status
         column I18n.t("active_admin.globalize3.translations") do |obj|
-          obj.translation_names.map do |t|
+          obj.locales.map(&:to_s).map do |t|
             ActiveAdmin::Views::StatusTag.new.status_tag(t,:ok,:label => t)
           end.join(" ").html_safe
         end

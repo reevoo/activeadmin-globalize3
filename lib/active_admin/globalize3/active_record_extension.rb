@@ -2,10 +2,8 @@ module ActiveAdmin::Globalize3
   module ActiveRecordExtension
 
     module Methods
-      def translation_names
-        self.translations.map(&:locale).map do |locale|
-          I18n.t("active_admin.globalize3.language.#{locale}")
-        end.uniq.sort
+      def locales
+        self.translations.map(&:locale).uniq.sort
       end
 
       def reject_and_distroy(attributes)
