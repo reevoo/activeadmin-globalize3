@@ -5,9 +5,21 @@ module ActiveAdmin
     module IndexTableFor
       def translation_status
         column I18n.t("active_admin.globalize3.translations") do |obj|
-          obj.locales.map(&:to_s).map do |t|
-            ActiveAdmin::Views::StatusTag.new.status_tag(t,:ok,:label => t)
-          end.join(" ").html_safe
+          (translated_locales(obj) + untranslated_locales(obj)).join(" ").html_safe
+        end
+      end
+
+      private
+      def translated_locales(obj)
+        obj.locales.map(&:to_s).map do |t|
+          ActiveAdmin::Views::StatusTag.new.status_tag(t,:ok,:label => t)
+        end
+      end
+
+      def untranslated_locales(obj)
+        locales = I18n.available_locales - obj.locales
+        locales.map(&:to_s).map do |t|
+          ActiveAdmin::Views::StatusTag.new.status_tag(t,:label => t)
         end
       end
     end
