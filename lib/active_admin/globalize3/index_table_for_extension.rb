@@ -18,6 +18,9 @@ module ActiveAdmin
 
       def untranslated_locales(obj)
         locales = I18n.available_locales - obj.locales
+        if I18n.methods.include?(:fallbacks)
+          locales = locales.reject {|l| I18n.fallbacks[l].last != l }
+        end
         locales.map(&:to_s).map do |t|
           ActiveAdmin::Views::StatusTag.new.status_tag(t,:label => t)
         end
