@@ -2,41 +2,35 @@
 
 .active_admin
   .activeadmin-translations
-    background-color: #f4f4f4
     margin-bottom: 20px
 
-    &> ul
-      position: relative
-      z-index: 2
-      top: 4px
-      padding: 10px
+    .dropdown_menu
+      display: inline-block
+      padding: 16px
+      +border-top-radius(4px)
+      background-color: #f4f4f4
 
-      &> li
-        display: inline-block
+    fieldset ol > li.fallback
+      font-size: 1.0em
+      font-weight: bold
+      color: #5e6469
 
-        &> a
-          display: inline-block
-          color: #666
-          margin-right: 3px
-          margin-bottom: 3px
-          text-decoration: none
-          font-size: 12px
-          padding: 5px
-          border-radius: 4px
-          text-shadow: 0 1px 0 white
-          +inset-shadow(0, 4px, 4px, #ddd)
-          +gradient($secondary-gradient-stop, #999)
 
-          &.error
-            color: #932419
+    ul > li > a.error
+      @include gradient(#cc1f27, #db4249)
+      @include text-shadow(#5a83aa)
+      color: #FFF
 
-          &.untranslated
-            +gradient($secondary-gradient-stop, #f4f4f4)
-            color: #666 !important
-          &.active
-            +inset-shadow(0, 4px, 4px, #666)
-            +gradient($secondary-gradient-stop, #333)
-            color: #000 !important
+    ul > li > a.untranslated
+      @include gradient(#b3b3b3, #cccccc)
+
+    ul > li > a.fallback
+      background-color: #F2F2F2
+
+    ul > li > a.active
+      @include highlight-gradient
+      @include text-shadow(#5a83aa)
+      color: #FFF
 
     &> fieldset.inputs
       margin-bottom: 0

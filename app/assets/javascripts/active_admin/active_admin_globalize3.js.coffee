@@ -1,36 +1,27 @@
 $ ->
-
   translations = ->
-
-    $(".activeadmin-translations > ul").each ->
+    $(".activeadmin-translations").each ->
       $dom = $(this)
       if !$dom.data("ready")
-        $dom.data("ready", true)
-        $tabs = $("li > a", this)
-        $default_tab = $("li > a.active", this)
-        $contents = $(this).siblings("fieldset")
+        $links = $('.dropdown_menu_list > li > a', this)
+        $button = $('.dropdown_menu_button')
+        $active_link = $('.dropdown_menu_list > li > a.active', this)
+        $contents = $(this).find("fieldset")
+        $contents.hide()
+        $contents.filter($active_link.attr("href")).show()
+        $button.text($active_link.text())
 
-        activate = (tab,tabs) ->
-          tabs.not(tab).removeClass("active")
-          tab.addClass("active")
-          $contents.hide()
-          $contents.filter(tab.attr("href")).show()
-
-        $tabs.click ->
-          $tab = $(this)
-          activate($tab, $tabs)
+        $links.click ->
+          $link = $(this)
+          $links.removeClass('active')
+          $link.addClass('active')
           false
 
-        $tabs.eq(0).click()
-
-        $tabs.each ->
-          $tab = $(@)
-          $content = $contents.filter($tab.attr("href"))
+        $links.each ->
+          $link = $(@)
+          $content = $contents.filter($link.attr("href"))
           containsErrors = $content.find(".input.error").length > 0
-          $tab.toggleClass("error", containsErrors)
-
-        activate($default_tab,$tabs)
-
+          $link.toggleClass("error", containsErrors)
 
   # this is to handle elements created with has_many
   $("a").bind "click", ->
