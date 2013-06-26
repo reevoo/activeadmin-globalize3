@@ -10,7 +10,7 @@ module ActiveAdmin
             [template.content_tag(:a, 'Locale', class: 'dropdown_menu_button', href: '#'),
             template.content_tag(:div, class: 'dropdown_menu_list_wrapper', style: 'display: none;') do
               template.content_tag(:ul, class: 'dropdown_menu_list') do
-                I18n.available_locales.map do |locale|
+                I18n.available_locales.sort.map do |locale|
                   classes = ""
                   classes << "untranslated " unless object.translations.find {|t| t.locale == locale} or fallback?(locale)
                   if I18n.methods.include?(:fallbacks)
