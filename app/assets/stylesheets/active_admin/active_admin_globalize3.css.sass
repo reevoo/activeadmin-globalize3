@@ -15,6 +15,8 @@
       font-weight: bold
       color: #5e6469
 
+    ul > li
+      @include gradient(#6EC148, #FFF)
 
     ul > li > a.error
       @include gradient(#cc1f27, #db4249)
@@ -22,7 +24,8 @@
       color: #FFF
 
     ul > li > a.untranslated
-      @include gradient(#b3b3b3, #cccccc)
+      @include gradient(#FF0000, #FFF)
+      color: #FFF
 
     ul > li > a.fallback
       background-color: #F2F2F2
