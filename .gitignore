@@ -7,4 +7,3 @@ spec/internal/log/*.log
 spec/internal/tmp/
 spec/internal/.sass-cache
 spec/internal/public/uploads/*
-Gemfile.lock
