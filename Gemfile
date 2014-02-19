@@ -10,7 +10,7 @@ group :test do
   gem 'activerecord'
   gem 'actionpack' # action_controller, action_view
   gem 'sprockets'
-  gem "jquery-rails"
+  gem "jquery-rails", "2.3.0"
   gem "sass-rails"
   gem "coffee-rails"
   gem "meta_search",    '>= 1.1.0.pre'
