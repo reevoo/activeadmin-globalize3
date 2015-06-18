@@ -13,6 +13,5 @@ group :test do
   gem "jquery-rails", "2.3.0"
   gem "sass-rails"
   gem "coffee-rails"
-  gem "meta_search",    '>= 1.1.0.pre'
   gem 'coffee-script-source', '~> 1.4.0' #fix issue with active admin and cs untill fix is merged
 end

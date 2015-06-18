@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir["spec/**/*"]
 
   s.add_dependency "activeadmin"
-  s.add_dependency "globalize3"
+  s.add_dependency "globalize"
 
   s.add_development_dependency 'rake'
   s.add_development_dependency 'rspec-rails'
